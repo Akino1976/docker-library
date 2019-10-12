@@ -7,7 +7,7 @@ RUN apt-get update \
 
 
 RUN apt-get update \
- && apt-get install --yes --no-install-recommends \
+    && apt-get install --yes --no-install-recommends \
         apt-transport-https \
         curl \
         gnupg \
