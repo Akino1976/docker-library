@@ -1,18 +1,17 @@
-CURRENT_DATE := `date + '%Y-%m-%d'`
+CURRENT_DATE := `date +'%Y-%m-%d'`
 VERSION ?= $(CURRENT_DATE)
 
-GITHUB_URL := 'https://github.com/Akino1976docker-library.git'
-
+DOCKER_HUB := 'docker.io/akino1976'
 export VERSION
 
 build:
 	docker build \
-		-t rocker-rbase-ext:latest \
-		-t rocker-rbase-ext:$(VERSION)
-		-t $(GITHUB_URL)/rocker-rbase-ext \
-		-t $(GITHUB_URL)/rocker-rbase-ext:$(VERSION) \
-		-t $(GITHUB_URL)/rocker-rbase-ext:$(CURRENT_DATE) \
-		-f Dockerfile
+		-t databricks-rbase:latest \
+		-t databricks-rbase:$(VERSION) \
+		-t $(DOCKER_HUB)/databricks-rbase \
+		-t $(DOCKER_HUB)/databricks-rbase:$(VERSION) \
+		-t $(DOCKER_HUB)/databricks-rbase:$(CURRENT_DATE) \
+		-f Dockerfile \
 		.
 
 date:
